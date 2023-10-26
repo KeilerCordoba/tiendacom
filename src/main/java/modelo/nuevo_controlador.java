@@ -33,7 +33,8 @@ public class usuario_controlador implements ActionListener {
             nuevo.getJcvsexo().addItem(sexo);
         }
         nuevo.getCbxCargo().addItem("selecione...");
-        map<String rol:datos = usu.llenarCombo("rol");
+        map<String rol
+        :datos = usu.llenarCombo("rol");
         for (String rol : datos.keySet()) {
             nuevo.getCbxCargo().addItem(rol);
         }

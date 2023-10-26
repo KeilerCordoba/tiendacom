@@ -4,10 +4,7 @@
  */
 package modelo;
 
-/**
- *
- * @author SENA
- */
-public class ModeloUsuario {
+
+public class Gestion {
     
 }

@@ -74,4 +74,36 @@ public class controlador_Usuario implements ActionListener {
             int cargo = mode_usu.llenarCombo("cargo").get(valorCargo);
         }
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) { //Valida los eventos
+        if (e.getSource().equals(prin.getBtnNuevo())) {//Se crea al acción cuando le damos clic en el boton nuevo de la vista princial
+
+            /*Al cerrar la ventana nuevo no cierra el programa sino que abre la ventana principal*/
+            nuevo.addWindowListener(new WindowAdapter() {
+                public void windowClosed(WindowEvent e) {
+                    prin.setVisible(true);
+                }
+            });
+            prin.setVisible(false);//Cierra la ventana principal para a que solo se visualice la ventana de nuevo usuario
+            nuevo.setLocationRelativeTo(null);
+            nuevo.setVisible(true);
+
+            //Lleno el combobox de sexo
+            nuevo.getJcvsexo().addItem("Seleccione...");
+            Map<String, Integer> dato = usu.llenarCombo("sexo");
+            for (String sexo : dato.keySet()) {
+                nuevo.getJcvsexo().addItem(sexo);
+            }
+            //Lleno el combobox de rol
+            nuevo.getCbxCargo().addItem("Seleccione...");
+            Map<String, Integer> datos = usu.llenarCombo("rol");
+            for (String rol : datos.keySet()) {
+                nuevo.getCbxCargo().addItem(rol);
+            }
+        }
+
+    }
+
 }
+

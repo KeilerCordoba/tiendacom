@@ -36,15 +36,23 @@ public class login extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(102, 153, 255));
 
-        jLabel1.setText("NUEVO USUARIO");
+        jPanel1.setBackground(new java.awt.Color(51, 102, 255));
 
+        jLabel1.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel1.setText("INICIAR SECION");
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("ussuario");
 
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("contraseña");
 
         jPasswordField1.setText("jPasswordField1");
 
+        jButton1.setBackground(new java.awt.Color(0, 255, 255));
         jButton1.setText("iniciar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,6 +60,7 @@ public class login extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(153, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/programador.png"))); // NOI18N
         jButton2.setText("contraseña");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
