@@ -4,11 +4,13 @@
 
 package com.mycompan.tienda.com;
 
+import controlador.Controlador_Login;
+
 
 public class TiendaCom {
 
     public static void main(String[] args) {
-      controlador_login pantalon = new controlador_login();
+      Controlador_Login pantalon = new Controlador_Login();
       pantalon.iniciarVista();
 
     }

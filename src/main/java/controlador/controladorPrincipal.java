@@ -1,8 +1,7 @@
 package Controlador;
 
-import Modelo.Modelo_Usuario;
-import Vista.Nuevo_Usuario;
-import Vista.Principal;
+import Modelo.ModeloUsuario;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -12,16 +11,18 @@ import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.event.ChangeEvent;
 import modeloLogin.modelo_usuario;
+import vista.NuevoUsuario;
+import vista.Principal;
 
 public class ControladorPrincipal implements ActionListener {
-
-    Principal prin = new Principal();//Instancia(Llama) la ventana principal
-    Nuevo_Usuario nuevo = new Nuevo_Usuario();//Instanca (Llama) la ventana(vista) Nuevo usuario
+    Principal prin = new Principal();//Instancia(Llama) la ventana Principal
+    NuevoUsuario nuevo = new NuevoUsuario();//Instanca (Llama) la ventana(vista) Nuevo usuario
     ModeloUsuario usu = new ModeloUsuario();//Instancia el modelo de usuario
+    ControladorUsuario ControUsu = new ControladorUsuario();
 
     public ControladorPrincipal() {
-        prin.getBtnNuevo().addActionListener(this);//Agrega el boton nuevo para que se escuche cuando se de clic
-        nuevo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//Desactiva la x que cierrar el programa para que permita abrir o volver a la ventana principal
+        prin.getBtnNuevaFactura().addActionListener(this);//Agrega el boton nuevo para que se escuche cuando se de clic
+        nuevo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//Desactiva la x que cierrar el programa para que permita abrir o volver a la ventana Principal
     }
 
     public void iniciar() {
@@ -34,36 +35,36 @@ public class ControladorPrincipal implements ActionListener {
     }
 
     public void gestionPestanas() {
-        if (prin.getJtPrincipal().getSelectedindex() == 0) {
+        if (prin.getPrincipal().getSelectedIndex()== 0) {
 
         }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource().equals(prin.getBtnNuevo())) {
+        if (e.getSource().equals(prin.getBtnNuevaFactura())) {
 
             prin.setVisible(false);
-            contUsua.control();
+            ControUsu.controlUsuario();
         }
 
     }
 
     @Override
     public void stateChanged(ChangeEvent e) {
-        int seleccion = prin.getJtprincipal().getSelectedIndex();
+        int seleccion = prin.getPreferredSize().getSelectedIndex();
         if (seleccion == 0) {
             gestionPestanas();
         }
         if (seleccion == 1) {
-            modelo_usuario modUsu = new modelo_usuario();
-            modelo_usuario.mostrarTablaUsuario(prin.getTusuario(), "");
+            ModeloUsuario ModUsu = new ModeloUsuario();
+            ModeloUsuario.mostrarTablaUsuario(prin.getJ, "");
 
             prin.getTxtBuscar().addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e){
-                    prin.getTxtBuscar().setText("");
-                    prin.getTxtBuscar().setForeground(color.BLACK);
+                    prin.getBtnNuevaFactura().setText("");
+                    prin.getBtnNuevaFactura().setForeground(color.BLACK);
                     
                 }
                 
